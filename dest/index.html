@@ -1,1 +1,70 @@
-Hello world
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <!-- ページタイトル -->
+    <title>Twitter APIを使ってTweet検索アプリを作ってみる</title>
+ 
+    <!-- CSS スタイルの設定 ↓ -->
+    <style type="text/css">
+ 
+        #twitter {
+            /* サイズ */
+            width: 1000px;
+            height: 500px;
+            /* 内部コンテンツが増えた場合に、スクロールさせる */
+            overflow: auto;
+            color: #666; /* 文字の色 */
+            border: 1px solid #CCC; /* 枠の色 */
+        }
+ 
+        .Tweet表示エリア {
+            font-size: 12px; /*文字のサイズ*/
+        }
+ 
+    </style>
+ 
+</head>
+<body>
+ 
+    <!-- UI部分 ↓ -->
+    <div id="twitter">
+        <div class="Tweet表示エリア">
+            ここにツイートを表示する
+        </div>
+    </div>
+ 
+    <input id="キーワード入力欄" placeholder="検索したいキーワード"></input> <!-- テキストボックス -->
+    <button id="検索ボタン">検索!</button> <!-- 検索実行用ボタン -->
+ 
+    <!-- ライブラリの読み込み部分 ↓ -->
+    <!-- jqueryを読み込む -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ 
+    <!-- 処理部分を記述 ↓ -->
+    <script type="text/javascript">
+ 
+        // ウィンドウを読み込み後に実行される
+        $(window).load(function(){
+ 
+            // idに検索ボタンと指定されている button要素にクリックイベントを設定
+            $("#検索ボタン").on("click", function(){
+                // idにキーワード入力欄と指定されている input要素に入力されている値を取得
+                var keywords = $("#キーワード入力欄").val();
+                // keywordsに何も入力されていなかった場合の処理
+                if(keywords == ""){
+                    alert("何も入力されていないようです。"); // メッセージを表示
+                    return; // 処理を中断
+                }
+                else{
+                    alert(keywords + "　が入力されています。");
+                }
+ 
+            });
+ 
+        });
+ 
+    </script>
+ 
+</body>
+</html>
