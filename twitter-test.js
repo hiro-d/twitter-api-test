@@ -9,7 +9,7 @@ var client = new twitter({
   access_token_secret: twitter_config.get('access_token_secret')
 });
 
-var params = {q: "Lv100 セレスト", lang: 'ja', locale: 'ja', result_type: 'recent'};
+var params = {q: "参加者募集！参戦ID", lang: 'ja', locale: 'ja', result_type: 'recent'};
 
 client.get('search/tweets', params, function(error, tweets, response){
   if (!error) {
